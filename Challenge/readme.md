@@ -21,7 +21,7 @@ git commit -m "Solución challenge"
 git push origin ch_ange_perez_perez
 ```
 
-# Challengue 21
+# Challengue
 
 Te proponemos el siguiente desafío, ¿te animas?
 
