@@ -8,7 +8,7 @@ ejemplo: angel_perez_perez
 Dentro de este directorio cargar el o los archivos de la solución a la actividad programamos.
 
 Ejemplo de comandos de git en consola
-
+```
 cd 21_Ciclos_Estructura_Pseudocodigo_diagramas_flujo
 git checkout master
 git checkout -b pro_ange_perez_perez
@@ -18,3 +18,4 @@ touch script.js
 git add *
 git commit -m "Solución programamos"
 git push origin pro_ange_perez_perez
+```
