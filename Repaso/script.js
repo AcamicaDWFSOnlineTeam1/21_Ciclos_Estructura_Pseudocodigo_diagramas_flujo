@@ -2,7 +2,7 @@ console.log("B" < "A");
 
 console.log(NaN == NaN);
 
-//let a = { };
+//let a = { }; 
 
 console.log((a = {} ) == (a = {}));
 
