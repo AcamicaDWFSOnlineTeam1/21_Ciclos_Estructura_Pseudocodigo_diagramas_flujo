@@ -46,3 +46,41 @@ donde:
 4. Título del PR
 5. Comentarios relacionados con el PR
 6. Finalmente crean el pull request (**Create pull request**)
+
+# Programan
+
+## 1. Sumemos
+Crear un script que permita ingresar solamente 5 valores mediante prompt y nos muestre la suma total de todos los valores ingresados.
+Mostrar el resultado utilizando un alert.
+
+## 2. Promedio
+A nuestro script agreguemos el promedio de todos los números ingresados.
+Muestra el resultado con un alert.
+¿Validaron que los datos ingresados sean números?
+Si no lo hicieron, éste es el momento
+
+## 3. Edades
+Ingresar N cantidad de edades mediante prompt hasta que se ingrese un cero.
+Al finalizar mostrar cuántos son mayores de edad.
+Muestra el resultado con un alert.
+Válida la mayoría de edad a través de una función.
+
+## 4. Promedio condicional
+Ingresar N cantidad de números mediante prompt.
+Mostrar el promedio de los números ingresados de 1 dígito.
+Terminar el programa con la palabra “salir”.
+Muestra el resultado con un alert.
+Genera el promedio utilizando una función.
+
+## 5. Pares e impares
+Ingresar N cantidad de números mediante prompt.
+Mostrar quién tuvo más ingresos, si los pares o los impares.
+Terminar el programa un 0.
+Muestra el resultado con un alert
+alcula si el número ingresado es par o impar a través de una función.
+
+## 6. De números a letras
+Ingresa un número entre 1 y 10 mediante prompt y transformarlo en su equivalente en el abecedario.
+Siendo 1 = a y 10 = j cualquier otro valor mostrar un mensaje de error.
+Muestra el resultado con un alert.
+Utiliza una función para transformar el número a letra.
