@@ -14,3 +14,6 @@ Mostrar el código descargado en visual studio code:
 ```
 code .
 ```
+
+Más ejemplode de diagramas de flujo:
+https://app.creately.com/diagram/erXeJIQj7X1/edit
