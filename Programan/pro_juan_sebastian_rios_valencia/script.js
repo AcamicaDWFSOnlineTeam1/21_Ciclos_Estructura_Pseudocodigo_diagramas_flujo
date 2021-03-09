@@ -1,25 +1,45 @@
 //Ejecucion del primer script cuando se clickea
 document.getElementById('first').onclick = function() {
-    //  Defino las variables 
-
+    // Defino variables
     let number;
     let cont = 1;
-    var suma = 0;
-    var promedio;
+    let suma = 0;
+    let prom;
+
+    //  Funcion que suma
+    function sumatoria(number) {
+        suma = suma + number;
+        return suma;
+    }
+
+    //  Funcion para sacar promedio
+    function promedio(suma, cont) {
+        prom = suma / cont;
+        return prom;
+    }
+
+    //  Funcion que valida si es un numero
+    function validacionNumero(number) {
+        while (isNaN(number)) {
+            number = prompt("Ingresa de nuevo, lo que has ingresado no es un numero");
+        }
+        number = parseFloat(number);
+        return number;
+    }
 
     //  While que solicita 5 numeros y opera
 
     while (cont <= 5) {
         if (cont === 1) {
             number = prompt("Ingrese un numero");
-            number = parseFloat(number);
-            suma = suma + number;
+            number = validacionNumero(number);
+            suma = sumatoria(number);
         } else {
             number = prompt("Ingrese otro numero");
-            number = parseFloat(number);
-            suma = suma + number;
+            number = validacionNumero(number);
+            suma = sumatoria(number);
         }
-        promedio = suma / cont;
+        prom = promedio(suma, cont);
         cont = cont + 1;
     }
 
@@ -27,22 +47,30 @@ document.getElementById('first').onclick = function() {
     //  Alertas para informar al usuario
 
     alert("La suma total de sus numeros es: " + suma);
-    alert("El promedio de sus numeros es: " + promedio);
+    alert("El promedio de sus numeros es: " + prom);
 }
 
 //  Ejecucion del segundo script cuando se clickea
 document.getElementById('second').onclick = function() {
-    //  Defino las variables
-    var cont = 0;
-    var edad;
+    // Defino variables
+    let edad;
+    let cont = 0;
 
-    // Funcion que define si es mayor de edad
-    function conteoMayores(edad) {
+    // Funcion que aumenta el contador si es mayor de edad
+    function conteoMayores(edad, cont) {
         if (edad >= 18) {
-            return 1;
-        } else {
-            return 0;
+            cont = cont + 1;
         }
+        return cont;
+    }
+
+    //  Funcion que valida que si sea un numero
+    function validacionNumero(edad) {
+        while (isNaN(edad)) {
+            edad = prompt("Ingresa de nuevo, lo que has ingresado no es un dato valido (Recuerda ingresar solo numeros)");
+        }
+        edad = parseInt(edad);
+        return edad;
     }
 
     //  Aviso informativo
@@ -51,8 +79,9 @@ document.getElementById('second').onclick = function() {
     //  Do while que pide las edades y opera
     do {
         edad = prompt("Ingrese la edad");
-        edad = parseInt(edad);
-        cont = cont + conteoMayores(edad);
+        edad = parseInt(validacionNumero(edad));
+        //edad = parseInt(edad);
+        cont = conteoMayores(edad, cont);
     } while (edad != 0);
 
     //  Alerta para informar resultado 
@@ -66,6 +95,7 @@ document.getElementById('third').onclick = function() {
     let suma = 0;
     let cantidad = 0;
     let prom;
+    let alerta;
 
     //  Funcion para sacar promedio
     function promedio(number, cantidad) {
@@ -73,6 +103,30 @@ document.getElementById('third').onclick = function() {
         prom = suma / cantidad;
         return prom;
     }
+
+    //  Funcion que valida si es un numero
+    function validacionNumero(number) {
+        while (isNaN(number)) {
+            number = number.toLowerCase();
+            if (number == "salir") {
+                return number;
+            } else {
+                number = prompt("Ingresa de nuevo, lo que has ingresado no es un numero.\nEn caso de querer terminar ingresar la palabra salir");
+            }
+        }
+        number = parseInt(number);
+        return number;
+    }
+
+    function alertaSalida(prom) {
+        if (prom != undefined) {
+            alerta = "El promedio es " + prom;
+        } else {
+            alerta = "No has ingresado ningun numero de un digito";
+        }
+        return alerta;
+    }
+
     //  Alerta informativa
     alert("Si desea terminar la operación por favor teclear la palabra: salir");
 
@@ -82,18 +136,17 @@ document.getElementById('third').onclick = function() {
         number = number.toLowerCase();
         // If para romper el while
         if (number != "salir") {
-            number = parseInt(number);
-            // If para definir si es de un solo digito
+            number = validacionNumero(number);
+            if (number == "salir") {
+                alert(alertaSalida(prom));
+                break;
+            }
             if (number < 10 && number >= 0) {
                 cantidad = cantidad + 1;
                 prom = promedio(number, cantidad);
             }
         } else {
-            if (prom != undefined) {
-                alert("El promedio es " + prom);
-            } else {
-                alert("No has ingresado ningun numero de un digito");
-            }
+            alert(alertaSalida(prom));
             break;
         }
     }
@@ -117,6 +170,15 @@ document.getElementById('fourth').onclick = function() {
         return type;
     }
 
+    //  Funcion que valida que si sea un numero
+    function validacionNumero(number) {
+        while (isNaN(number)) {
+            number = prompt("Ingresa de nuevo, lo que has ingresado no es un dato valido (Recuerda ingresar solo numeros).\nPara salir ingresa 0.");
+        }
+        number = parseInt(number);
+        return number;
+    }
+
     //  Alerta informativa
     alert("IMPORTANTE: evitar ingresar el 0 si no desea terminar el conteo");
 
@@ -125,20 +187,22 @@ document.getElementById('fourth').onclick = function() {
         number = prompt("Ingrese un numero (Recuerde que para finalizar el script ingresar 0)");
         //  Condicional que finaliza el while 
         if (number != "0") {
-            // If que verifica que tenga al menos un numero
-            if (Number.isNaN(number)) {
-                number = parseInt(number);
-                type = typeOfNumber(number);
-                // Switch que suma los contadores
-                switch (type) {
-                    case "par":
-                        contPar = contPar + 1;
-                        break;
-                    case "impar":
-                        contImpar = contImpar + 1;
-                        break;
-                }
+            number = validacionNumero(number);
+            if (number == 0) {
+                break;
             }
+            number = parseInt(number);
+            type = typeOfNumber(number);
+            // Switch que suma los contadores
+            switch (type) {
+                case "par":
+                    contPar = contPar + 1;
+                    break;
+                case "impar":
+                    contImpar = contImpar + 1;
+                    break;
+            }
+
         } else {
             break;
 
@@ -158,11 +222,21 @@ document.getElementById('fourth').onclick = function() {
 
 //  Ejecucion del quinto script cuando se clickea
 document.getElementById('fiveth').onclick = function() {
+    // Defino variables
     let number;
     let letter;
 
+    // Funcion que valida que si es un numero
+    function validacionNumero(number) {
+        while (isNaN(number)) {
+            number = prompt("Ingresa de nuevo, lo que has ingresado no es un numero");
+        }
+        return number;
+    }
+
     // Ingreso del numero
     number = prompt("Ingresar un numero del 1 al 10");
+    number = validacionNumero(number);
 
     //  Funcion que transforma los numeros
     function transform(number) {

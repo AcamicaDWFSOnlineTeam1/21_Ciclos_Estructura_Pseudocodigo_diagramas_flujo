@@ -11,6 +11,10 @@ body {
     padding: 5px 5px 0 5px;
 }
 
+div {
+    cursor: pointer;
+}
+
 #first {
     display: inline-block;
     background-color: blue;
