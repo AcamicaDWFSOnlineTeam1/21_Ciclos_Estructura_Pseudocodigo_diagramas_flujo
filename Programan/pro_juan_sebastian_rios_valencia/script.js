@@ -48,7 +48,7 @@ document.getElementById('first').onclick = function() {
 
     alert("La suma total de sus numeros es: " + suma);
     alert("El promedio de sus numeros es: " + prom);
-}
+};
 
 //  Ejecucion del segundo script cuando se clickea
 document.getElementById('second').onclick = function() {
@@ -86,7 +86,7 @@ document.getElementById('second').onclick = function() {
 
     //  Alerta para informar resultado 
     alert("La cantidad de personas que son mayores de edad es " + cont);
-}
+};
 
 //  Ejecucion del tercer script cuando se clickea
 document.getElementById('third').onclick = function() {
@@ -150,7 +150,7 @@ document.getElementById('third').onclick = function() {
             break;
         }
     }
-}
+};
 
 //  Ejecucion del cuarto script cuando se clickea
 document.getElementById('fourth').onclick = function() {
@@ -218,7 +218,7 @@ document.getElementById('fourth').onclick = function() {
         alert("Tanto los números pares como impares tuvieron la misma cantidad de ingresos ");
     }
 
-}
+};
 
 //  Ejecucion del quinto script cuando se clickea
 document.getElementById('fiveth').onclick = function() {
@@ -279,4 +279,4 @@ document.getElementById('fiveth').onclick = function() {
 
     //  Alerta del resultado
     alert(transform(number));
-}
+};
