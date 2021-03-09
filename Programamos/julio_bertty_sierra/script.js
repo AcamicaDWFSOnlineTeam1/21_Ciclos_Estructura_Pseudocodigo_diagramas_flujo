@@ -1,80 +1,98 @@
-let ejercicio = parseInt(prompt('Escriba el numero del ejecicio a realizar: \n 1--> ¿Llega? \n 2--> ¿Cuantos tanques de nafta? \n 3--> Dial radio \n 4--> Transferencia Bancariaa'));
+let ejercicio = parseInt(prompt('Escriba el numero del ejecicio a realizar: \n 1--> Sumemos \n 2--> Promedio \n 3--> Edades \n 4--> Promedio condicional \n 5--> Pares e impares \n 6--> De numero a letras'));
 
 switch (ejercicio) {
     case 1:
-        // ** ¿Llega?
-        const CONSUMO_X_LITRO = 15;
-        const ALMACENAMIENTO_TANQUE_X_LITRO = 45;
-        const CONSUMO_MAX_KM_AUTO = CONSUMO_X_LITRO * ALMACENAMIENTO_TANQUE_X_LITRO;
-
-        let kmXrecorrer = parseFloat(prompt('Kilometros a Recorrer: '));
-        let consumo = kmXrecorrer/CONSUMO_X_LITRO
-
-        if (kmXrecorrer > CONSUMO_MAX_KM_AUTO) {    
-            alert('Usted deberá abastacer conbustible en su trayecto')
-        } else {
-            alert('Puede recorrer la distancia con un solo tanque')
-        };
-        
+        let suma  = 0;
+        for (let index = 1; index <= 5; index++) {
+            suma = suma + parseFloat(prompt("Ingrese valor " + index + ": "));
+            
+        }
+        alert("La suma de los numeros ingresados es: "+ suma)
         break;
 
     case 2:
-        // ** ¿Cuantos tanques de nafta?
-        const V1 = 15;
-        const V2 = 12;
-        const V3 = 10;
-
-        const TANQUE = 50
-
-        let versionAutomovil = parseInt(prompt('Escriba el numero de la version que está utilizando:\n 1--> Motor 1.6 \n 2--> Motor 1.8 \n 3--> Motor 2.0'));
-        let kmArecorrer = parseFloat(prompt('Escriba Los Kilometros a recorrer: '));
-        
-        if (versionAutomovil == 1) {
-            let tanques = (kmArecorrer / V1) / TANQUE;
-            alert("Usted va ha necesitar: " + tanques + ' ' + "Tanques de Nafta para realizar ese recorrido");
-        }else if (versionAutomovil == 2) {
-            let tanques = (kmArecorrer / V2) / TANQUE;
-            alert("Usted va ha necesitar: " + tanques + ' ' + "Tanques de Nafta para realizar ese recorrido")
-        } else {
-            let tanques = (kmArecorrer / V3) / TANQUE;
-            alert("Usted va ha necesitar: " + tanques + ' ' + "Tanques de Nafta para realizar ese recorrido")
+        let prom  = 0;
+        let num;
+        function esNumero(n) {            
+            if (isNaN(n)) {
+                alert('Debe ingresar solo numeros')
+                return true
+            }else {
+                return false
+            }
         }
-        
+
+        for (let index = 1; index <= 5; index++) {
+            
+            do {
+                num = parseFloat(prompt("Ingrese valor " + index + ": "));
+                //debugger;
+            } while (esNumero(num));
+
+            prom += num;
+        }
+        alert("El promedio de los numeros ingresados es: "+ prom/5)
         break;
 
     case 3:
-        // Dial de radio
-        let dial = parseFloat(prompt('Ingrese dial de radio a escuchar: '));
-        if (((dial % 2) != 0) && (dial >= 89.9) && (dial < 107.9)) {
-            alert('¡Ese dial de Radio EXISTE!');
-        }else {
-            alert('¡Ese dial de Radio NO EXISTE!')
+        let edad;
+        let mayores = 0;
+        function esMayor(num) {
+            if (num >= 18) {
+                return true;
+            }else {
+                return false;
+            }
         }
+        do {
+            edad = parseInt(prompt('Ingrese la Edad: '))
+            if (esMayor(edad)) {
+                mayores += 1
+            }
+        } while (edad != 0);        
         
+        alert("De las edades ingresadas " + mayores + " edades son mayores de edad")
         break;
 
     case 4:
-        // Transferencia Bancaria
-        let fondos = 10000;
-        let usuarios = ['JULIO', 'JOSE', 'ANDREA', 'SOFIA']        
-        let validation = true;
-        while (validation) {
-            let monto = parseFloat(prompt('Monto de dinero a transferir: '));
-            let usuario = (prompt('Ingrese destinatario: ')).toUpperCase();
-            debugger;
-            if (monto > fondos) {
-                alert('No tiene fondos suficientes');
-            }else if (!usuarios.includes(usuario)) {
-                alert('Destinatario no existe');
-            } else {
-                alert('Transaccion exitosa');
-                validation = false;
+        let numero = 0;        
+        let sumatoria = 0;
+        let denominador = 0;
+        let terminar = "no";
+        function unDigito(num) {
+            if ((num > -10) && (num < 10)) {
+                return true;
+            }else {
+                return false
             }
-        }        
+        }
+        function promedio(num, deno) {
+            return num/deno
+        }
+        let cantidad = parseInt(prompt('Cantidad de numeros a Ingresar: '))
+        for (let index = 1; index <= cantidad; index++) {
+            numero = parseFloat(prompt("Ingrese numero "+ index + " :"));
+            if (unDigito(numero)) {
+                denominador += 1;
+                sumatoria += numero;
+            }           
+        }
+                        
+        do{
+            terminar = prompt("El promedio de los numeros de un digito es: " + promedio(sumatoria, denominador)+ "\n Para terminar escriba la palabra 'salir'");
+        }while (terminar != "salir")
+        
+        break;
+
+    case 5:
+        
+        break;
+
+    case 6:
+    
         break;
 
     default:
-        alert('Opcion no valida')
+        alert("Debe ingresar una opcion valida")
         break;
 }
-
