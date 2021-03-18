@@ -1,3 +1,11 @@
+# Challengue
+
+Te proponemos el siguiente desafío, ¿te animas?
+
+Escribe dos ciclos, uno con for el otro con while, que se repitan exactamente 10 vueltas.
+
+# Pasos para crear un branch y pull request para revisión de su código
+
 Crea una rama de master, el nombre de su rama debe tener la siguiente estructura:
 ch_nombre_apellidoPaterno_appelidoMaterno
 ejemplo: ch_angel_perez_perez
@@ -47,10 +55,3 @@ donde:
 4. Título del PR
 5. Comentarios relacionados con el PR
 6. Finalmente crean el pull request (**Create pull request**)
-
-
-# Challengue
-
-Te proponemos el siguiente desafío, ¿te animas?
-
-Escribe dos ciclos, uno con for el otro con while, que se repitan exactamente 10 vueltas.
